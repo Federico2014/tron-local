@@ -8,6 +8,7 @@
   },
   "scripts": {
     "proposal": "node proposal.js",
-    "verify": "node verify.js"
+    "verify": "node verify.js",
+    "proposal-tx-time": "node proposal_tx_time.js"
   }
 }

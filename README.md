@@ -21,6 +21,11 @@ Private key with some TRX: `138a22c03039e688daa2b7c785d1e8d6b9375d4413e6ea82471b
 ## Call the contract
 1. `./scripts/verify.sh`
 
+
+## increase the MAX_CPU_TIME_OF_ONE_TX
+1. `./scripts/proposal_tx_time.sh`
+
+
 ## Cleanup
 2. `./scripts/stop.sh`
 3. `./scripts/clean.sh`
