@@ -6,7 +6,7 @@ set -e
 
 echo "Copy FullNode.jar"
 cp bin/FullNode.jar ./SR
-cp bin/FullNode.jar ./FullNode
+# cp bin/FullNode.jar ./FullNode
 
 cd ./SR
 echo "Start super node"

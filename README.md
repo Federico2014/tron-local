@@ -6,11 +6,11 @@
 3. `./scripts/run.sh`
 4. Wait some time
 5. `./scripts/proposal.sh`
-6. Note that proposal will be executed only in an hour
+6. Note that proposal will be executed only in ten minutes
 
-FullNode address: http://localhost:26667
+FullNode address: http://localhost:16667
 
-SolidityNode address: http://localhost:26668
+SolidityNode address: http://localhost:16668
 
 Private key with some TRX: `138a22c03039e688daa2b7c785d1e8d6b9375d4413e6ea82471b1e7a61701a9d`
 

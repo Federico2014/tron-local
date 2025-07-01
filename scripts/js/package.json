@@ -9,6 +9,7 @@
   "scripts": {
     "proposal": "node proposal.js",
     "verify": "node verify.js",
+    "verify_call": "node verify_call.js",
     "proposal-tx-time": "node proposal_tx_time.js"
   }
 }

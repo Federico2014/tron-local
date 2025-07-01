@@ -11,67 +11,17 @@ async function callVerfier() {
     {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "_verifierAddress",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
-      "inputs": [],
-      "name": "counter",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getCounter",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "verifier",
-      "outputs": [
-        {
-          "internalType": "contract TransferVerifier",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
           "internalType": "uint256[5]",
-          "name": "publicInputs",
+          "name": "input",
           "type": "uint256[5]"
         },
         {
           "internalType": "uint256[8]",
-          "name": "proof",
+          "name": "p",
           "type": "uint256[8]"
         }
       ],
-      "name": "verifyAndCount",
+      "name": "verifyProof",
       "outputs": [
         {
           "internalType": "bool",
@@ -79,18 +29,16 @@ async function callVerfier() {
           "type": "bool"
         }
       ],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     }
   ];
 
-  console.log("TRANSFER_VERIFIER_ADDRESS: " + process.env.TRANSFER_CONTRACT_ADDRESS);
+  console.log("TRANSFER_VERIFIER_ADDRESS: " + process.env.TRANSFER_VERIFIER_ADDRESS);
 
-  let contract = await tronWeb.contract(abi, process.env.TRANSFER_CONTRACT_ADDRESS);
-  let before_counter = await contract.getCounter().call();
-  console.log("befere counter: " + before_counter);
+  let contract = await tronWeb.contract(abi, process.env.TRANSFER_VERIFIER_ADDRESS);
 
-  let result = await contract.verifyAndCount(
+  let result = await contract.verifyProof(
     [
       "410187940904267791665857625594021464304867517571189176088693585418403627175",
       "3582932279793408241095145848517164196468279227198151416866003392249976328215",
@@ -107,11 +55,8 @@ async function callVerfier() {
     "10758418988168490454233654079316113438289985487422580576512164625214747833303",
     "16113585132297177719187882899369575704186199591529360947329945124938113973184"
   ]
-  ).send();
+  ).call();
   console.log("result: " + result);
-
-  let after_counter = await contract.getCounter().call();
-  console.log("after counter: " + after_counter);
 }
 
 callVerfier().catch(error => console.log(error));
